@@ -1,0 +1,28 @@
+{% load bootstrap4 %}
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+<!doctype html>
+<html lang="de">
+    <head>
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    </head>
+<body>
+        <nav class="nav">
+                <a class="nav-link active" href="/zeit/">Zeit</a>
+                <a class="nav-link" href="/zeit/888888888888888">Mittermeyer</a>
+                <a class="nav-link" href="#">Link</a>
+                <a class="nav-link disabled" href="#">Disabled</a>
+              </nav>
+              
+
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+            {% block content %}
+            {% endblock %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

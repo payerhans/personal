@@ -10,3 +10,21 @@ class Person(models.Model):
 
     def __str__(self):
         return "PersNr: {}, Name: {}".format(self.pers_nr, self.nach_name)
+
+class ZeitKorrektur(models.Model):
+    KORR_TYPES = (
+        ('DI', 'Dienst'),
+        ('SU', 'Sonderurlaub'),
+        ('VB', 'Vergessene Buchung'),
+        ('DR', 'Dienstreise'),
+    )
+    person = models.ForeignKey(Person, on_delete=models.CASCADE)
+    art = models.CharField(max_length=2, choices=KORR_TYPES)
+    datum = models.DateField()
+    beginn = models.TimeField()
+    ende = models.TimeField()
+    begruendung = models.TextField('Begründung', max_length=150)
+    gedruckt = models.BooleanField()
+
+    def __str__(self):
+        return "{}, {}".format(self.art, self.datum)

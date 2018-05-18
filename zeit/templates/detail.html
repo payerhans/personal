@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<button type="button" class="btn btn-primary">{{ blabla }}</button>
+<div>{{ text }}</div>
+{% if corrections %}
+<ul class="list-group">
+    
+    {% for cor in corrections %}
+    <li class="list-group-item">{{ cor.art }} {{ cor.datum }} {{ cor.begin }} {{ cor.ende }} {{ cor.begruendung }}</li>
+    {% endfor %}
+</ul>
+    
+{% else %}
+    <div>Keine Einträge vorhanden</div>
+{% endif %}
+
+
+
+{% endblock %}
